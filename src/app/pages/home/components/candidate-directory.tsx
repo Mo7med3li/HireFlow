@@ -1,6 +1,4 @@
 import { CandidateCard } from "./candidate-card";
-import { useQuery } from "@tanstack/react-query";
-import { getCandidates } from "../../../../lib/apis/candidates.api";
 import { CandidatesSkeleton } from "../../../../components/skeletons/cadidates.skeleton";
 import { EmptyCandidate } from "./empty-candidate";
 import { ErrorCandidate } from "../../../../components/shared/error";
@@ -8,18 +6,10 @@ import { Input } from "../../../../components/ui/input";
 import { Search } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { useMemo } from "react";
+import { useFetchCandidates } from "../hook/use-fetch-cadidates";
 
 export const CandidateDirectory = () => {
-  const {
-    data: candidates,
-    isLoading,
-    error,
-    refetch,
-  } = useQuery({
-    queryKey: ["candidates"],
-    queryFn: getCandidates,
-  });
-
+  const { data: candidates, isLoading, error, refetch } = useFetchCandidates();
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
   const sort = searchParams.get("sort") || "score-desc";

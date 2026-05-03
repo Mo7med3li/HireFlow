@@ -1,11 +1,10 @@
 import { useParams, Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { getCandidateById } from "../../../lib/apis/candidates.api";
 import { ChevronLeft } from "lucide-react";
 import { ProfileHeader } from "./components/profile-header";
 import { ProfileDetails } from "./components/profile-details";
 import { ErrorCandidate } from "../../../components/shared/error";
 import SingleCandidateSkeleton from "../../../components/skeletons/single-cadidate.skeleton";
+import { useFetchSingleCandidate } from "./hooks/use-fetch-single-cadidate";
 
 export default function CandidateProfile() {
   const { id } = useParams<{ id: string }>();
@@ -15,11 +14,7 @@ export default function CandidateProfile() {
     isLoading,
     error,
     refetch,
-  } = useQuery({
-    queryKey: ["candidate", id],
-    queryFn: () => getCandidateById(id!),
-    enabled: !!id,
-  });
+  } = useFetchSingleCandidate(id!);
 
   if (isLoading) {
     return <SingleCandidateSkeleton />;
