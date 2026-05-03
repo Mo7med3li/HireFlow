@@ -1,8 +1,10 @@
+import Hero from "./components/hero-section";
+
 function App() {
   return (
-    <>
-      <section className="bg-blue-600"> home page</section>
-    </>
+    <section className="flex flex-col w-full">
+      <Hero />
+    </section>
   );
 }
 
