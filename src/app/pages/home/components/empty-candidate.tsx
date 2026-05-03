@@ -1,6 +1,10 @@
 import { SearchX } from "lucide-react";
 
-export const EmptyCandidate = () => {
+export const EmptyCandidate = ({
+  setSearch,
+}: {
+  setSearch: (search: string) => void;
+}) => {
   return (
     <div className="flex flex-col items-center justify-center py-24 text-center border rounded-xl bg-card border-dashed">
       <div className="p-4 rounded-full mb-4">
@@ -11,7 +15,10 @@ export const EmptyCandidate = () => {
         We couldn't find any candidates matching your criteria. Try adjusting
         your filters.
       </p>
-      <button className="inline-flex h-10 items-center justify-center rounded-md border px-6 text-sm font-medium shadow-sm bg-green-200 hover:bg-green-400 transition-colors">
+      <button
+        className="inline-flex h-10 items-center justify-center rounded-md border px-6 text-sm font-medium shadow-sm bg-green-200 hover:bg-green-400 transition-colors"
+        onClick={() => setSearch("")}
+      >
         Clear Filters
       </button>
     </div>

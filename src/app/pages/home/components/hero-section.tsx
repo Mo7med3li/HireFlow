@@ -1,5 +1,4 @@
 import { Users, Code, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -22,12 +21,12 @@ const Hero = () => {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <Link
-            to="#candidates"
-            className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+          <a
+            href="#candidates"
+            className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer"
           >
             Hire Candidates
-          </Link>
+          </a>
         </div>
 
         {/* Stats Strip */}
