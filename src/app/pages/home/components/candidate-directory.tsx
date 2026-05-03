@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCandidates } from "../../../../lib/apis/candidates.api";
 import { CandidatesSkeleton } from "../../../../components/skeletons/cadidates.skeleton";
 import { EmptyCandidate } from "./empty-candidate";
-import { ErrorCandidate } from "./error";
+import { ErrorCandidate } from "../../../../components/shared/error";
 import { Input } from "../../../../components/ui/input";
 import { Search } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
